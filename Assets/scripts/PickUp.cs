@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public bool isWithinRange = false;
+    private bool isWithinRange = false;
     public GameObject MessagePanel;
+    public OpenDoors player;
     private Vector3 _rotation = new Vector3(0, 10, 0);
-
 
     void Start(){
         MessagePanel.SetActive(false);
@@ -28,6 +28,7 @@ public class PickUp : MonoBehaviour
         if (isWithinRange && Input.GetKeyDown(KeyCode.E)){
             gameObject.SetActive(false);
             MessagePanel.SetActive(false);
+            player.ItemCount++;
         }
         transform.Rotate(_rotation* Time.deltaTime);
     }
