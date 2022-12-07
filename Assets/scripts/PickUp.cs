@@ -6,6 +6,8 @@ public class PickUp : MonoBehaviour
 {
     public bool isWithinRange = false;
     public GameObject MessagePanel;
+    private Vector3 _rotation = new Vector3(0, 10, 0);
+
 
     void Start(){
         MessagePanel.SetActive(false);
@@ -27,5 +29,6 @@ public class PickUp : MonoBehaviour
             gameObject.SetActive(false);
             MessagePanel.SetActive(false);
         }
+        transform.Rotate(_rotation* Time.deltaTime);
     }
 }
